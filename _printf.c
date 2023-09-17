@@ -9,7 +9,7 @@
 */
 int _printf(const char *format, ...)
 {
-int n, j, str_len, num_of_ch;
+int n, j, num_of_ch;
 char *s;
 char ch;
 va_list args;// Create a va_list to hold the variable arguments
@@ -37,19 +37,26 @@ write(1, &format[n], 1);
 num_of_ch++;
 }
 //ask for format specifier
-if (format[n] == 'c')
+else if (format[n] == 'c')
 {
 ch = va_arg(args, int);
 write(1, &ch, 1);
 num_of_ch++;
 }
-if (format[n] == 's')
+else if (format[n] == 's')
 {
 s = va_arg(args, char *);
-str_len = strlen(s);
-write(1, s, str_len);
-num_of_ch = num_of_ch + str_len;
-
+num_of_ch = num_of_ch + print_string(s);
+}
+else if (format[n] == 'i' || format[n] == 'd')
+{
+  //integer format
+}
+else
+{
+write(1, &format[n - 1], 1);
+write(1, &format[n], 1);
+num_of_ch++;
 }
 }  
 n++;
