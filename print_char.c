@@ -4,7 +4,7 @@
  *
  *@ch: char which needs to print
  *
- *@Return: 1
+ *Return: 1
 */
 int print_char(char ch)
 {

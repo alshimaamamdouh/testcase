@@ -1,12 +1,12 @@
 #include "main.h"
 /**
- *print_string - prints string
+ *print_string - prints string and return length of string
  *
  *@str: pointer to char which needs to print
  *
- *@Return: length of string
+ *Return: returns length of string
 */
-int print_string(char * str)
+int print_string(char *str)
 {
 int str_len;
 char *s = "(null)";
