@@ -9,16 +9,18 @@
 */
 int _printf(const char *format, ...)
 {
-int n, num_of_ch;
+int n = 0, num_of_ch = 0;
 char *s;
 char ch;
 va_list args;
 
 va_start(args, format);
-num_of_ch = 0;
-n = 0;
+if (format == NULL)
+return (-1); ;
 while (format && format[n])
 {
+if (format[n] == '\0')
+break;
 if (format[n] != '%')
 {
 write(1, &format[n], 1);
