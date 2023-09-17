@@ -40,8 +40,7 @@ num_of_ch++;
 else if (format[n] == 'c')
 {
 ch = va_arg(args, int);
-write(1, &ch, 1);
-num_of_ch++;
+num_of_ch = num_of_ch + print_char(ch);
 }
 else if (format[n] == 's')
 {
