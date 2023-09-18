@@ -11,6 +11,7 @@
 
 void putprin(char *t ,   long double dig , char flag , char *ss )
 {
+   int temp ,first;	
    char num,s[10];
    int x = (int) dig;
     switch(flag)
@@ -26,17 +27,17 @@ void putprin(char *t ,   long double dig , char flag , char *ss )
             break;
 
     case 's':
-                     for(int ii = 0 ; ss[ii] != '\0'; ii++)
+                     for(first = 0 ; ss[first] != '\0'; first++)
                      {
-                             write(1, &ss[ii], 1);
+                             write(1, &ss[first], 1);
                      }
 
 
             break;
 
 }
-                     for(int ii = 2 ; t[ii] != '\0'; ii++)
+                     for(temp = 2 ; t[temp] != '\0'; temp++)
                      {
-                             write(1, &t[ii], 1);
+                             write(1, &t[temp], 1);
                      }
 }

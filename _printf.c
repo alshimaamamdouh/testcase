@@ -9,15 +9,17 @@
 */
 int _printf(const char *format, ...)
 {
+char token[1000];
+int strl = 0;
+int k = 0;
+int i;
 va_list ptr;
 va_start(ptr, format);
-char token[1000];
+for (i = 0; format[i] != '\0'; i++)
 
-int strl;
-int k = 0;
-for (int i = 0; format[i] != '\0'; i++) 
 {
 token[k++] = format[i];
+
 if (format[i + 1] == '%' || format[i + 1] == '\0') 
 {
 token[k] = '\0';
@@ -33,18 +35,17 @@ char ch1 = 0;
 while ((ch1 = token[j++]) < 58) 
 {
 }
-if (ch1 == 'i' || ch1 == 'd' || ch1 == 'u'
-                    || ch1 == 'h') 
+if (ch1 == 'i' || ch1 == 'd' || ch1 == 'u' || ch1 == 'h') 
 {
-putprin(token ,va_arg(ptr, int), 'i', NULL);
+putprin(token, va_arg(ptr, int), 'i', NULL);
 }
 else if (ch1 == 'c') 
 {
-putprin(token ,va_arg(ptr, int), 'c', NULL);
+putprin(token, va_arg(ptr, int), 'c', NULL);
 }
 else if (ch1 == 's') 
 {
-putprin(token , 0, 's', va_arg(ptr, char*));
+putprin(token, 0, 's', va_arg(ptr, char*));
 }
 else 
 {

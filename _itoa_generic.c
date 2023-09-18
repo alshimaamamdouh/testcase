@@ -23,7 +23,6 @@ char itoa_generic (char* u8ptrbuf, int u32int_value)
       tempVariable /= 10;
     }
   }
-  //u8ptrbuf[num_digits]=0;
   for(index = 1; index <= num_digits; index++)
   {
     u8ptrbuf[num_digits - index] = (u32int_value % 10) + 0x30;
