@@ -4,18 +4,18 @@
  *putprin - write function
  *@t: input one
  *@dig: input two
- *@flag: input three
+ *@fly: input three
  *@ss: input four
  *
  */
 
-void putprin(char *t, long double dig, char flag, char *ss)
+void putprin(char *t, long double dig, char fly, char *ss)
 {
 int temp, first;
 
 char num, s[10];
 int x = (int) dig;
-switch (flag)
+switch (fly)
 {
 case 'i':
 num = itoa_generic(s, dig);
