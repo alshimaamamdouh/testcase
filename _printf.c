@@ -9,53 +9,51 @@
 */
 int _printf(const char *format, ...)
 {
-int n = 0, num_of_ch = 0;
-char *s;
-char ch;
-va_list args;
+va_list ptr;
+va_start(ptr, format);
+char token[1000];
 
-va_start(args, format);
-if (format == NULL)
-return (-1); ;
-while (format && format[n])
+int strl;
+int k = 0;
+for (int i = 0; format[i] != '\0'; i++) 
 {
-if (format[n] == '\0')
-break;
-if (format[n] != '%')
+token[k++] = format[i];
+if (format[i + 1] == '%' || format[i + 1] == '\0') 
 {
-write(1, &format[n], 1);
-num_of_ch++;
+token[k] = '\0';
+k = 0;
+if (token[0] != '%') 
+{
+write(1, token, strl + 1);
 }
-else if (format[n + 1])
+else 
 {
-n = n + 1;
-if (format[n] == '%')
-{
-write(1, &format[n], 1);
-num_of_ch++;
-}
-else if (format[n] == 'c')
-{
-ch = va_arg(args, int);
-num_of_ch = num_of_ch + print_char(ch);
-}
-else if (format[n] == 's')
-{
-s = va_arg(args, char *);
-num_of_ch = num_of_ch + print_string(s);
-}
-else if (format[n] == 'i' || format[n] == 'd')
+int j = 1;
+char ch1 = 0;
+while ((ch1 = token[j++]) < 58) 
 {
 }
-else
+if (ch1 == 'i' || ch1 == 'd' || ch1 == 'u'
+                    || ch1 == 'h') 
 {
-write(1, &format[n - 1], 1);
-write(1, &format[n], 1);
-num_of_ch++;
+putprin(token ,va_arg(ptr, int), 'i', NULL);
+}
+else if (ch1 == 'c') 
+{
+putprin(token ,va_arg(ptr, int), 'c', NULL);
+}
+else if (ch1 == 's') 
+{
+putprin(token , 0, 's', va_arg(ptr, char*));
+}
+else 
+{
+putprin('\0', 0, 's', token);
 }
 }
-n++;
 }
-va_end(args);
-return (num_of_ch);
+strl = i + 1;
+}
+va_end(ptr);
+return (strl);
 }
