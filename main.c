@@ -16,21 +16,6 @@ int main(void)
     len2 = printf("Let's try to printf a simple sentence.\n");
     _printf("Length:[%d, %i]\n", len, len);
     printf("Length:[%d, %i]\n", len2, len2);
-    _printf("%!\n");
     _printf("css%ccs%scscscs", 'T',"Test");
-    printf(NULL);
-    _printf("%s", NULL);
-    _printf("%");
-    _printf("% ");
-    _printf("Character:[%c]\n", 'H');
-    printf("Character:[%c]\n", 'H');
-    _printf("String:[%s]\n", "I am a string !");
-    printf("String:[%s]\n", "I am a string !");
-    _printf("Len:[%d]\n", len);
-    printf("Len:[%d]\n", len2);
-    _printf("Unknown:[%r]\n");
-    printf("Unknown:[%r]\n");
-    len = _printf("Percent:[%%]\n");
-    len2 = printf("Percent:[%%]\n");
     return (0);
 }
