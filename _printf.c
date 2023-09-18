@@ -10,16 +10,12 @@
 int _printf(const char *format, ...)
 {
 char token[1000];
-int strl = 0;
-int k = 0;
-int i;
+int strl = 0, k = 0, i;
 va_list ptr;
 va_start(ptr, format);
 for (i = 0; format[i] != '\0'; i++)
-
 {
 token[k++] = format[i];
-
 if (format[i + 1] == '%' || format[i + 1] == '\0') 
 {
 token[k] = '\0';
@@ -46,10 +42,6 @@ putprin(token, va_arg(ptr, int), 'c', NULL);
 else if (ch1 == 's') 
 {
 putprin(token, 0, 's', va_arg(ptr, char*));
-}
-else if (ch1 == '%') 
-{
-putprin(token, va_arg(ptr, int), 'c', NULL);
 }
 else 
 {
