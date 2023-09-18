@@ -17,5 +17,7 @@ int main(void)
     _printf("Length:[%d, %i]\n", len, len);
     printf("Length:[%d, %i]\n", len2, len2);
     _printf("css%ccs%scscscs", 'T',"Test");
+    len = _printf("Percent:[%%]\n");
+    len2 = printf("Percent:[%%]\n");
     return (0);
 }

@@ -47,6 +47,10 @@ else if (ch1 == 's')
 {
 putprin(token, 0, 's', va_arg(ptr, char*));
 }
+else if (ch1 == '%') 
+{
+putprin(token, va_arg(ptr, int), 'c', NULL);
+}
 else 
 {
 putprin('\0', 0, 's', token);
